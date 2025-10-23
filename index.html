@@ -5,181 +5,200 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>VerdeVoyager — PBL Demo</title>
 <style>
-:root{
-  --bg:#f6f8f9;
-  --card:#ffffff;
-  --muted:#6b7280;
-  --accent:#16a34a;
-  --accent-2:#10b981;
-  --glass: rgba(255,255,255,0.6);
-  --radius:12px;
-  --shadow: 0 6px 20px rgba(17,24,39,0.06);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-}
-html,body{height:100%;margin:0;background:var(--bg);color:#0f172a}
-.wrap{max-width:980px;margin:28px auto;padding:20px}
-header{display:flex;align-items:center;gap:16px}
-.logo{
-  width:58px;height:58px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));
-  display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px;box-shadow:var(--shadow)
-}
-h1{margin:0;font-size:22px}
-p.lead{margin:6px 0 0;color:var(--muted);font-size:14px}
-.grid{display:grid;grid-template-columns:1fr 380px;gap:20px;margin-top:18px}
-@media(max-width:880px){.grid{grid-template-columns:1fr;}}
-.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px}
-.controls .section{margin-bottom:14px}
-.picker-row{display:flex;gap:8px;flex-wrap:wrap}
-.chip{
-  padding:10px 12px;border-radius:999px;border:1px solid #e6eef0;cursor:pointer;
-  background:white;display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;color:#0f172a;
-}
-.chip.selected{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;border-color:transparent;box-shadow:0 6px 18px rgba(16,185,129,0.12)}
-label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
-input[type="text"], select, input[type="date"], input[type="number"]{
-  width:100%;padding:10px;border-radius:10px;border:1px solid #e6eef0;font-size:14px;background:transparent;
-}
-.row{display:flex;gap:10px}
-.preferences{display:flex;flex-wrap:wrap;gap:8px}
-.pre-btn{padding:8px 10px;border-radius:8px;border:1px solid #e8eef0;background:#fbfdfb;cursor:pointer;font-size:13px}
-.pre-btn.active{background:#eefdf2;border-color:var(--accent)}
-.budget-wrap{display:flex;align-items:center;gap:8px}
-.budget-wrap input[type=range]{flex:1}
-.btn{
-  display:inline-block;padding:12px 16px;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;
-  border:none;font-weight:700;cursor:pointer;font-size:15px;box-shadow:0 8px 20px rgba(16,185,129,0.12)
-}
-.btn.ghost{background:transparent;color:var(--accent);border:1px solid #e6f4ea;box-shadow:none}
-.result{min-height:220px;position:relative;overflow:hidden}
-.loader{
-  display:flex;align-items:center;gap:12px;color:var(--muted);font-weight:600;padding:12px 0;
-}
-.dots{display:inline-block;width:10px;height:10px;border-radius:50%;background:#c7e9d0;animation:dots 1s linear infinite}
-.dots:nth-child(2){animation-delay:.12s}
-.dots:nth-child(3){animation-delay:.24s}
-@keyframes dots{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
-.itinerary h3{margin:8px 0 6px}
-.itinerary p{margin:6px 0;color:#0f172a}
-.meta{font-size:13px;color:var(--muted);margin-top:8px}
-footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
-small.note{display:block;margin-top:6px;color:var(--muted)}
-.top-row{display:flex;justify-content:space-between;align-items:center;gap:12px}
-.actions{display:flex;gap:8px}
+  /* Modern minimal styling */
+  :root{
+    --bg:#f6f8f9;
+    --card:#ffffff;
+    --muted:#6b7280;
+    --accent:#16a34a;
+    --accent-2:#10b981;
+    --glass: rgba(255,255,255,0.6);
+    --radius:12px;
+    --shadow: 0 6px 20px rgba(17,24,39,0.06);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+  html,body{height:100%;margin:0;background:var(--bg);color:#0f172a}
+  .wrap{max-width:980px;margin:28px auto;padding:20px}
+  header{display:flex;align-items:center;gap:16px}
+  .logo{
+    width:58px;height:58px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px;box-shadow:var(--shadow)
+  }
+  h1{margin:0;font-size:22px}
+  p.lead{margin:6px 0 0;color:var(--muted);font-size:14px}
+
+  .grid{display:grid;grid-template-columns:1fr 380px;gap:20px;margin-top:18px}
+  @media(max-width:880px){.grid{grid-template-columns:1fr;}}
+  .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px}
+  .controls .section{margin-bottom:14px}
+  .picker-row{display:flex;gap:8px;flex-wrap:wrap}
+  .chip{
+    padding:10px 12px;border-radius:999px;border:1px solid #e6eef0;cursor:pointer;
+    background:white;display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;color:#0f172a;
+  }
+  .chip.selected{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;border-color:transparent;box-shadow:0 6px 18px rgba(16,185,129,0.12)}
+  label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+  input[type="text"], select, input[type="date"], input[type="number"]{
+    width:100%;padding:10px;border-radius:10px;border:1px solid #e6eef0;font-size:14px;background:transparent;
+  }
+  .row{display:flex;gap:10px}
+  .preferences{display:flex;flex-wrap:wrap;gap:8px}
+  .pre-btn{padding:8px 10px;border-radius:8px;border:1px solid #e8eef0;background:#fbfdfb;cursor:pointer;font-size:13px}
+  .pre-btn.active{background:#eefdf2;border-color:var(--accent)}
+  .budget-wrap{display:flex;align-items:center;gap:8px}
+  .budget-wrap input[type=range]{flex:1}
+  .btn{
+    display:inline-block;padding:12px 16px;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;
+    border:none;font-weight:700;cursor:pointer;font-size:15px;box-shadow:0 8px 20px rgba(16,185,129,0.12)
+  }
+  .btn.ghost{background:transparent;color:var(--accent);border:1px solid #e6f4ea;box-shadow:none}
+
+  /* Result area */
+  .result{min-height:220px;position:relative;overflow:hidden}
+  .loader{
+    display:flex;align-items:center;gap:12px;color:var(--muted);font-weight:600;padding:12px 0;
+  }
+  .dots{display:inline-block;width:10px;height:10px;border-radius:50%;background:#c7e9d0;animation:dots 1s linear infinite}
+  .dots:nth-child(2){animation-delay:.12s}
+  .dots:nth-child(3){animation-delay:.24s}
+  @keyframes dots{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+
+  .itinerary h3{margin:8px 0 6px}
+  .itinerary p{margin:6px 0;color:#0f172a}
+  .meta{font-size:13px;color:var(--muted);margin-top:8px}
+
+  footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+  small.note{display:block;margin-top:6px;color:var(--muted)}
+  /* small UI niceties */
+  .top-row{display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .actions{display:flex;gap:8px}
 </style>
 </head>
 <body>
-<div class="wrap">
-<header>
-  <div class="logo">VV</div>
-  <div>
-    <h1>VerdeVoyager — PBL Demo</h1>
-    <p class="lead">Minimal, offline "AI-like" travel planner — collects inputs and simulates web-search results for your project.</p>
-  </div>
-</header>
-
-<div class="grid">
-  <!-- LEFT: form -->
-  <div class="card controls" aria-labelledby="formTitle">
-    <div class="top-row">
-      <strong id="formTitle">Plan your eco trip</strong>
-    </div>
-
-    <!-- 1. Styles -->
-    <div class="section" aria-label="Trip style">
-      <label>Choose trip style</label>
-      <div class="picker-row" id="stylePicker">
-        <div class="chip" data-style="Nature">⛺ Nature</div>
-        <div class="chip" data-style="Beach">🏖 Beach</div>
-        <div class="chip" data-style="Mountains">🏔 Mountains</div>
-        <div class="chip" data-style="City">🏙 City</div>
-        <div class="chip" data-style="Wellness">🧘 Wellness</div>
+  <div class="wrap">
+    <header>
+      <div class="logo">VV</div>
+      <div>
+        <h1>VerdeVoyager — PBL Demo</h1>
+        <p class="lead">Minimal, offline "AI-like" travel planner — collects inputs and simulates web-search results for your project.</p>
       </div>
-    </div>
+    </header>
 
-    <!-- 2. Dates -->
-    <div class="section">
-      <label>Dates</label>
-      <div class="row">
-        <input type="date" id="startDate" placeholder="Enter start date" />
-        <input type="date" id="endDate" placeholder="End date" />
-      </div>
-    </div>
-
-    <!-- 3. Area -->
-    <div class="section">
-      <label>Area / Region (e.g., Dubai, Kerala, Portugal)</label>
-      <input type="text" id="area" placeholder="City, region or country" />
-    </div>
-
-    <!-- 4. Budget -->
-    <div class="section">
-      <label>Budget per person (approx)</label>
-      <div class="budget-wrap">
-        <input type="range" id="budget" min="50" max="5000" value="500" />
-        <div style="min-width:86px">
-          <input id="budgetInput" type="number" min="50" max="5000" step="10" value="500" style="width:100%;padding:8px;border-radius:8px;border:1px solid #e6eef0"/>
-        </div>
-      </div>
-    </div>
-
-    <!-- 5. Preferences -->
-    <div class="section">
-      <label>Preferences (select any)</label>
-      <div class="preferences" id="prefs">
-        <div class="pre-btn" data-pref="public">Use public transport</div>
-        <div class="pre-btn" data-pref="vegan">Vegan-friendly</div>
-        <div class="pre-btn" data-pref="lowcarbon">Low-carbon stays</div>
-        <div class="pre-btn" data-pref="hidden">Hidden gems</div>
-        <div class="pre-btn" data-pref="family">Family-friendly</div>
-      </div>
-    </div>
-
-    <!-- Generate -->
-    <div class="section" style="margin-top:6px">
-      <div class="actions">
-        <button id="generateBtn" class="btn">Generate My Trip</button>
-        <button id="clearBtn" class="btn ghost">Clear</button>
-        <button id="askGeminiBtn" class="btn">Ask Gemini</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- RIGHT: result -->
-  <div class="card result" id="resultCard" aria-live="polite">
-    <div id="resultInner" style="padding:6px 2px">
-      <div class="loader" id="idleMessage">
-        <div style="font-weight:700">Ready to plan</div>
-        <div style="color:var(--muted);margin-left:6px">Pick options and click <strong>Generate My Trip</strong></div>
-      </div>
-      <div id="outputArea" style="display:none">
+    <div class="grid">
+      <!-- LEFT: form -->
+      <div class="card controls" aria-labelledby="formTitle">
         <div class="top-row">
-          <div>
-            <strong id="destTitle">Trip Plan</strong>
-            <div class="meta" id="destMeta">—</div>
-          </div>
-          <div style="text-align:right">
-            <div id="foundWebs" style="font-size:13px;color:var(--muted)"></div>
+          <strong id="formTitle">Plan your eco trip</strong>
+          <div class="meta">Demo — works offline</div>
+        </div>
+
+        <!-- 1. Styles -->
+        <div class="section" aria-label="Trip style">
+          <label>Choose trip style</label>
+          <div class="picker-row" id="stylePicker">
+            <div class="chip" data-style="Nature">⛺ Nature</div>
+            <div class="chip" data-style="Beach">🏖 Beach</div>
+            <div class="chip" data-style="Mountains">🏔 Mountains</div>
+            <div class="chip" data-style="City">🏙 City</div>
+            <div class="chip" data-style="Wellness">🧘 Wellness</div>
           </div>
         </div>
-        <div class="itinerary" id="itineraryContent" style="margin-top:10px"></div>
-        <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
-          <button id="downloadBtn" class="btn ghost">Download TXT</button>
-          <button id="regenBtn" class="btn">Regenerate</button>
+
+        <!-- 2. Dates -->
+        <div class="section">
+          <label>Dates</label>
+          <div class="row">
+            <input type="date" id="startDate" />
+            <input type="date" id="endDate" />
+          </div>
+          <small class="note">If end date is before start date, the app uses a default 3-day trip.</small>
+        </div>
+
+        <!-- 3. Area -->
+        <div class="section">
+          <label>Area / Region (e.g., Dubai, Kerala, Portugal)</label>
+          <input type="text" id="area" placeholder="City, region or country" />
+        </div>
+
+        <!-- 4. Budget -->
+        <div class="section">
+          <label>Budget per person (approx)</label>
+          <div class="budget-wrap">
+            <input type="range" id="budget" min="50" max="5000" value="500" />
+            <div style="min-width:86px">
+              <input id="budgetInput" type="number" min="50" max="5000" step="10" value="500" style="width:100%;padding:8px;border-radius:8px;border:1px solid #e6eef0"/>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Preferences -->
+        <div class="section">
+          <label>Preferences (select any)</label>
+          <div class="preferences" id="prefs">
+            <div class="pre-btn" data-pref="public">Use public transport</div>
+            <div class="pre-btn" data-pref="vegan">Vegan-friendly</div>
+            <div class="pre-btn" data-pref="lowcarbon">Low-carbon stays</div>
+            <div class="pre-btn" data-pref="hidden">Hidden gems</div>
+            <div class="pre-btn" data-pref="family">Family-friendly</div>
+          </div>
+        </div>
+
+        <!-- Generate -->
+        <div class="section" style="margin-top:6px">
+          <div class="actions">
+            <button id="generateBtn" class="btn">Generate My Trip</button>
+            <button id="clearBtn" class="btn ghost">Clear</button>
+          </div>
+          <small class="note">This demo simulates searching websites and builds a realistic plan for PBL presentations.</small>
+        </div>
+      </div>
+
+      <!-- RIGHT: result -->
+      <div class="card result" id="resultCard" aria-live="polite">
+        <div id="resultInner" style="padding:6px 2px">
+          <div class="loader" id="idleMessage">
+            <div style="font-weight:700">Ready to plan</div>
+            <div style="color:var(--muted);margin-left:6px">Pick options and click <strong>Generate My Trip</strong></div>
+          </div>
+
+          <!-- This area will be replaced when AI 'finishes' -->
+          <div id="outputArea" style="display:none">
+            <div class="top-row">
+              <div>
+                <strong id="destTitle">Trip Plan</strong>
+                <div class="meta" id="destMeta">—</div>
+              </div>
+              <div style="text-align:right">
+                <div id="foundWebs" style="font-size:13px;color:var(--muted)"></div>
+              </div>
+            </div>
+
+            <div class="itinerary" id="itineraryContent" style="margin-top:10px">
+              <!-- Generated content fills here -->
+            </div>
+
+            <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
+              <button id="downloadBtn" class="btn ghost">Download TXT</button>
+              <button id="regenBtn" class="btn">Regenerate</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
-<footer>
-  Tip: Save the file as <code>index.html</code> and upload to GitHub Pages for a live demo.
-</footer>
-</div>
+    <footer>
+      Tip: Save the file as <code>index.html</code> and upload to GitHub Pages for a live demo. — Built for PBL.
+    </footer>
+  </div>
 
 <script>
-// -------------------------
-// Offline "AI-like" PBL demo
-// -------------------------
+/* -------------------------
+   Offline "AI-like" PBL demo
+   - modular functions
+   - simulated "search websites" (fake source list)
+   - generate itinerary based on inputs
+   ------------------------- */
+
 const stylePicker = document.getElementById('stylePicker');
 const chips = stylePicker.querySelectorAll('.chip');
 let selectedStyle = 'Nature';
@@ -220,7 +239,6 @@ const generateBtn = document.getElementById('generateBtn');
 const clearBtn = document.getElementById('clearBtn');
 const regenBtn = document.getElementById('regenBtn');
 const downloadBtn = document.getElementById('downloadBtn');
-const askGeminiBtn = document.getElementById('askGeminiBtn');
 
 const idleMessage = document.getElementById('idleMessage');
 const outputArea = document.getElementById('outputArea');
@@ -229,7 +247,12 @@ const destMeta = document.getElementById('destMeta');
 const itineraryContent = document.getElementById('itineraryContent');
 const foundWebs = document.getElementById('foundWebs');
 
-// Offline sample data
+generateBtn.addEventListener('click', onGenerate);
+clearBtn.addEventListener('click', clearForm);
+regenBtn.addEventListener('click', onGenerate);
+downloadBtn.addEventListener('click', downloadItinerary);
+
+// helper dataset (short, local for demo)
 const SAMPLE = {
   "Nature":[
     {name:"Valley Reserve", desc:"Forest walks, birding, community homestay", eco:"community-run homestay"},
@@ -253,9 +276,41 @@ const SAMPLE = {
   ]
 };
 
-const FAKE_SOURCES = ["local-guides.org", "greentravel.blog", "eco-tours.example", "travelforchange.net", "visitlocal.gov", "communitystays.com"];
+// Fake websites — used to make the result feel like a web search
+const FAKE_SOURCES = [
+  "local-guides.org", "greentravel.blog", "eco-tours.example", "travelforchange.net", "visitlocal.gov", "communitystays.com"
+];
 
-// Functions for offline planner
+function onGenerate(){
+  // collect input
+  const start = document.getElementById('startDate').value;
+  const end = document.getElementById('endDate').value;
+  const area = (document.getElementById('area').value || "Selected region").trim();
+  const bud = Number(document.getElementById('budgetInput').value) || Number(budget.value);
+  const chosenPrefs = Object.keys(prefsState).filter(k=>prefsState[k]);
+
+  // Basic validation + friendly fallbacks
+  let days = computeDays(start, end);
+  if(!start && !end) {
+    days = 3; // default
+  } else if(start && !end) {
+    days = 3;
+  } else if(!start && end) {
+    days = 3;
+  } else if(days <= 0) {
+    days = 3;
+  }
+
+  // show "AI thinking / searching websites" UI
+  simulateSearchUI();
+
+  // After 2.6s produce result (PBL demo)
+  setTimeout(()=>{
+    const data = pickSample(selectedStyle, area, bud, chosenPrefs);
+    showResult(data, start, end, days, area, bud, chosenPrefs);
+  }, 2600);
+}
+
 function computeDays(start,end){
   if(!start || !end) return null;
   const s = new Date(start);
@@ -265,6 +320,7 @@ function computeDays(start,end){
 }
 
 function simulateSearchUI(){
+  // Minimal animation/feedback: show loader with animated dots and fake fetching sites
   idleMessage.style.display = 'flex';
   outputArea.style.display = 'none';
   idleMessage.innerHTML = `
@@ -280,14 +336,18 @@ function simulateSearchUI(){
 
 function pickSample(style, area, budgetVal, prefs){
   const options = SAMPLE[style] || SAMPLE["Nature"];
+  // pick one depending on 'hidden' pref or budget
   let idx = 0;
   if(prefs.includes('hidden')) idx = 1;
   if(budgetVal > 1500) idx = 0;
   const pick = options[idx] || options[0];
+
+  // create plans for transport / stays / activities based on prefs and budget
   const transport = prefs.includes('public') ? "Public transport (train/bus) + local bike-share" : (budgetVal > 1200 ? "Fast connections (flights + private transfers)" : "Local buses and shared taxis");
   const stay = prefs.includes('lowcarbon') ? "Eco-certified stay or community homestay" : (budgetVal > 1200 ? "Comfortable small eco-hotel" : "Budget guesthouse with local host");
   const food = prefs.includes('vegan') ? "Mostly vegan/plant-based options" : "Local cuisine with healthy choices";
   const activity = pick.eco || "Volunteer/cleanup or guided conservation activity";
+
   return {
     title: `${pick.name} — ${style} near ${area}`,
     destName: pick.name,
@@ -299,6 +359,7 @@ function pickSample(style, area, budgetVal, prefs){
 }
 
 function pickConfidence(style, area, budgetVal){
+  // Simulate how many sources were "found" and a confidence message
   const found = Math.min(5, 2 + Math.round(Math.random()*4));
   let confidence = "Likely a great fit";
   if(budgetVal < 150) confidence = "Budget-conscious options suggested";
@@ -306,10 +367,127 @@ function pickConfidence(style, area, budgetVal){
   return {found, confidence};
 }
 
+function showResult(data, start, end, days, area, bud, prefs){
+  // Fill the result UI
+  idleMessage.style.display = 'none';
+  outputArea.style.display = 'block';
+  destTitle.textContent = data.title;
+  destMeta.textContent = `${start || 'Flexible dates'} → ${end || 'Flexible'} • ${days} day(s) • Budget ≈ $${bud}`;
+
+  // simulate sources used (pick a few fake ones)
+  const sources = sampleArray(FAKE_SOURCES, data.confidence.found);
+  foundWebs.textContent = `Sources: ${sources.join(' • ')}`;
+
+  // Build itinerary text
+  itineraryContent.innerHTML = '';
+  const pIntro = document.createElement('p');
+  pIntro.style.marginTop = '4px';
+  pIntro.innerHTML = `<strong>Overview:</strong> ${data.desc}. This plan highlights eco-friendly choices like <em>${data.eco}</em>.`;
+  itineraryContent.appendChild(pIntro);
+
+  const ul = document.createElement('ul');
+  ul.style.paddingLeft = '18px';
+  ul.style.marginTop = '8px';
+  addLi(ul, `<strong>Transport</strong>: ${data.transport}.`);
+  addLi(ul, `<strong>Stay</strong>: ${data.stay}.`);
+  addLi(ul, `<strong>Food</strong>: ${data.food}.`);
+  addLi(ul, `<strong>Top eco activity</strong>: ${data.eco}.`);
+  addLi(ul, `<strong>Why this fits</strong>: You chose <em>${selectedStyle}</em> with preferences: ${prefs.join(', ') || 'none'}. ${data.confidence.confidence}.`);
+  itineraryContent.appendChild(ul);
+
+  // Day-by-day sample
+  const dayTitle = document.createElement('h3'); dayTitle.textContent = `Sample day-by-day (${days} day${days>1?'s':''})`;
+  itineraryContent.appendChild(dayTitle);
+
+  for(let d=1; d<=Math.min(7, days); d++){
+    const p = document.createElement('p');
+    p.style.margin = '6px 0';
+    p.innerHTML = `<strong>Day ${d}:</strong> ${dayActivity(selectedStyle,d,prefs)}`;
+    itineraryContent.appendChild(p);
+  }
+  if(days>7){
+    const more = document.createElement('p'); more.style.color='var(--muted)'; more.textContent = `...and ${days-7} more days of similar activities (expand as needed).`;
+    itineraryContent.appendChild(more);
+  }
+
+  // Practical tips & CTA
+  const tips = document.createElement('div'); tips.style.marginTop='10px';
+  tips.innerHTML = `<h3>Practical tips</h3>
+    <ul style="padding-left:18px">
+      <li>Bring reusable bottle & bag; support local guides; book eco-operators.</li>
+      <li>Confirm public transport schedules and opening hours locally.</li>
+      <li>If you'd like, attach this demo to a real API later (flights, hotels, maps).</li>
+    </ul>`;
+  itineraryContent.appendChild(tips);
+
+  // store the latest plan for download
+  window.__lastPlan = {
+    title: data.title,
+    meta: destMeta.textContent,
+    content: itineraryContent.innerText || itineraryContent.textContent
+  };
+}
+
+/* Utility functions */
+function addLi(list, html){ const li = document.createElement('li'); li.innerHTML = html; list.appendChild(li); }
 function sampleArray(arr, n){
   const out = [];
   const copy = [...arr];
   for(let i=0;i<n;i++){
     if(copy.length===0) break;
     const idx = Math.floor(Math.random()*copy.length);
-   
+    out.push(copy.splice(idx,1)[0]);
+  }
+  return out;
+}
+function dayActivity(style,d,prefs){
+  let base = "Explore local area and join a community activity.";
+  if(style==="Nature") base = d===1 ? "Nature walk, orientation & birdwatching." : "Guided conservation task (tree planting / cleanup).";
+  if(style==="Beach") base = d===1 ? "Beach clean-up and tide-pool exploration." : "Snorkel or coastal village visit.";
+  if(style==="Mountains") base = d===1 ? "Short acclimatisation hike & village tour." : "Longer guided trek and scenic viewpoint.";
+  if(style==="City") base = d===1 ? "Heritage walking tour & local market visit." : "City bike tour and sustainable craft workshop.";
+  if(style==="Wellness") base = d===1 ? "Light yoga & mindful shoreline/forest walk." : "Local wellness workshop and organic meal.";
+  if(prefs.includes('vegan')) base += " (Ask for plant-based menu)";
+  if(prefs.includes('public')) base += " (Use public transport/bikes)";
+  return base;
+}
+
+function downloadItinerary(){
+  const plan = window.__lastPlan;
+  if(!plan){
+    alert("Generate a trip first to download it.");
+    return;
+  }
+  const txt = `${plan.title}\n${plan.meta}\n\n${plan.content}\n\nGenerated by VerdeVoyager (PBL demo).`;
+  const blob = new Blob([txt], {type: 'text/plain'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = plan.title.replace(/\s+/g,'_') + '.txt';
+  a.click();
+}
+
+/* Clear */
+function clearForm(){
+  // reset form to defaults
+  document.getElementById('startDate').value = '';
+  document.getElementById('endDate').value = '';
+  document.getElementById('area').value = '';
+  budget.value = 500; budgetInput.value = 500;
+  // prefs
+  Object.keys(prefsState).forEach(k=> prefsState[k]=false);
+  prefButtons.forEach(b=> b.classList.remove('active'));
+  // style back to Nature
+  selectedStyle = 'Nature';
+  chips.forEach(c=> c.classList.toggle('selected', c.dataset.style===selectedStyle));
+  // reset result area
+  idleMessage.style.display = 'flex';
+  idleMessage.innerHTML = `<div style="font-weight:700">Ready to plan</div><div style="color:var(--muted);margin-left:6px">Pick options and click <strong>Generate My Trip</strong></div>`;
+  outputArea.style.display = 'none';
+  window.__lastPlan = null;
+}
+
+// initialize
+clearForm();
+</script>
+</body>
+</html>
